@@ -1,0 +1,25 @@
+import React from 'react';
+import * as Nav from './Navigation';
+import  {Banner}  from '../../components/banner';
+
+
+export const BaseContainer = ({ children, loading, error }) => {
+    return (loading
+        ? <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
+        </div>
+        : error
+            ? <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            :<React.Fragment>
+                <Nav.Header />
+                  <Banner/>
+                <Nav.Footer />
+            </React.Fragment>
+    )
+}
